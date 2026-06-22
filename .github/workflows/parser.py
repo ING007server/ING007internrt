@@ -1,9 +1,7 @@
 import os
 import re
-import ipaddress
 import requests
 from datetime import datetime
-from urllib.parse import urlparse, parse_qs
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ===================== ИСТОЧНИКИ =====================
@@ -30,33 +28,10 @@ LIMIT = 3000
 CONFIG_FILE = "YaltaVPN - Subscription"
 LOG_FILE = "log.csv"
 
-# ===================== СТРАНЫ =====================
-FLAG_TO_CODE = {
-    "🇦🇫": "AF", "🇦🇱": "AL", "🇩🇿": "DZ", "🇦🇩": "AD", "🇦🇴": "AO",
-    "🇦🇷": "AR", "🇦🇲": "AM", "🇦🇺": "AU", "🇦🇹": "AT", "🇦🇿": "AZ",
-    "🇧🇩": "BD", "🇧🇾": "BY", "🇧🇪": "BE", "🇧🇷": "BR", "🇧🇬": "BG",
-    "🇨🇦": "CA", "🇨🇳": "CN", "🇭🇷": "HR", "🇨🇺": "CU", "🇨🇾": "CY",
-    "🇨🇿": "CZ", "🇩🇰": "DK", "🇪🇬": "EG", "🇪🇪": "EE", "🇫🇮": "FI",
-    "🇫🇷": "FR", "🇬🇪": "GE", "🇩🇪": "DE", "🇬🇷": "GR", "🇭🇰": "HK",
-    "🇭🇺": "HU", "🇮🇸": "IS", "🇮🇳": "IN", "🇮🇩": "ID", "🇮🇷": "IR",
-    "🇮🇶": "IQ", "🇮🇪": "IE", "🇮🇱": "IL", "🇮🇹": "IT", "🇯🇵": "JP",
-    "🇰🇿": "KZ", "🇰🇪": "KE", "🇰🇼": "KW", "🇰🇬": "KG", "🇱🇻": "LV",
-    "🇱🇧": "LB", "🇱🇾": "LY", "🇱🇹": "LT", "🇱🇺": "LU", "🇲🇾": "MY",
-    "🇲🇽": "MX", "🇲🇩": "MD", "🇲🇳": "MN", "🇲🇪": "ME", "🇲🇦": "MA",
-    "🇳🇱": "NL", "🇳🇿": "NZ", "🇳🇬": "NG", "🇰🇵": "KP", "🇳🇴": "NO",
-    "🇵🇰": "PK", "🇵🇸": "PS", "🇵🇪": "PE", "🇵🇭": "PH", "🇵🇱": "PL",
-    "🇵🇹": "PT", "🇶🇦": "QA", "🇷🇴": "RO", "🇷🇺": "RU", "🇸🇦": "SA",
-    "🇷🇸": "RS", "🇸🇬": "SG", "🇸🇰": "SK", "🇸🇮": "SI", "🇿🇦": "ZA",
-    "🇰🇷": "KR", "🇪🇸": "ES", "🇸🇪": "SE", "🇨🇭": "CH", "🇹🇼": "TW",
-    "🇹🇯": "TJ", "🇹🇭": "TH", "🇹🇷": "TR", "🇹🇲": "TM", "🇺🇦": "UA",
-    "🇦🇪": "AE", "🇬🇧": "GB", "🇺🇸": "US", "🇺🇾": "UY", "🇺🇿": "UZ",
-    "🇻🇳": "VN",
-}
-
 # ===================== ОСНОВНЫЕ ФУНКЦИИ =====================
 def fetch_source(url):
     try:
-        resp = requests.get(url, timeout=15)
+        resp = requests.get(url, timeout=20)
         resp.raise_for_status()
         lines = resp.text.splitlines()
         configs = []
@@ -66,14 +41,14 @@ def fetch_source(url):
                 configs.append(cfg)
         return configs
     except Exception as e:
-        print(f"Ошибка загрузки {url}: {e}")
+        print(f"❌ Ошибка загрузки {url}: {e}")
         return []
 
 def parse_config_line(line):
-    if not line or line.startswith('#') or len(line) < 10:
+    if not line or line.startswith('#') or len(line) < 15:
         return None
     try:
-        if line.startswith('vless://') or line.startswith('vmess://') or line.startswith('trojan://'):
+        if any(line.startswith(proto) for proto in ['vless://', 'vmess://', 'trojan://', 'ss://']):
             base = line.split('#')[0].strip()
             return {"base_url": base}
     except:
@@ -84,7 +59,7 @@ def save_to_drive(content, filename):
     try:
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(content)
-        print(f"✅ Файл {filename} сохранён ({len(content)} символов)")
+        print(f"✅ {filename} создан ({len(content)//1024} KB)")
     except Exception as e:
         print(f"❌ Ошибка сохранения {filename}: {e}")
 
@@ -93,7 +68,6 @@ def log_to_sheet(total, success, failed):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         with open(LOG_FILE, 'a', encoding='utf-8') as f:
             f.write(f"{timestamp},{total},{success},{failed}\n")
-        print(f"📋 Лог обновлён: {total} конфигов")
     except:
         pass
 
@@ -108,27 +82,27 @@ def main():
             try:
                 configs = future.result()
                 all_configs.extend(configs)
-                print(f"✅ {url} → +{len(configs)} конфигов")
+                print(f"✅ {url.split('/')[-1]} → +{len(configs)}")
             except Exception as e:
-                print(f"❌ {url} → ошибка: {e}")
+                print(f"❌ {url} → ошибка")
 
-    # Убираем дубликаты
+    # Убираем дубли
     seen = set()
     unique_configs = [c for c in all_configs if not (c["base_url"] in seen or seen.add(c["base_url"]))]
-
     unique_configs = unique_configs[:LIMIT]
-    print(f"📊 Итого уникальных: {len(unique_configs)} (лимит {LIMIT})")
+
+    print(f"📊 Итого уникальных: {len(unique_configs)}")
 
     if not unique_configs:
         print("⚠️ Конфигов не найдено!")
         return
 
-    subscription = "\n".join(cfg["base_url"] for cfg in unique_configs)
+    subscription = "\n".join(c["base_url"] for c in unique_configs)
     
     save_to_drive(subscription, CONFIG_FILE)
     log_to_sheet(len(unique_configs), len(unique_configs), 0)
 
-    print(f"🎉 Готово! Файлы созданы.")
+    print("🎉 Всё сохранено успешно!")
 
 if __name__ == "__main__":
     try:
