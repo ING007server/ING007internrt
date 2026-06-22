@@ -1,0 +1,47 @@
+name: Update Proxy List
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Фикс для избавления от предупреждения/ошибки Node.js 20
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Parser Script
+        run: python parser.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "YaltaVPN"
+          git config --global user.email "yalta-vpn@users.noreply.github.com"
+          
+          # Указываем имя нового файла (в кавычках из-за пробелов) и лог
+          git add "YaltaVPN - Subscription" log.csv
+          
+          # Проверяем изменения и отправляем их на GitHub
+          git diff --cached --quiet || git commit -m "🔄 Обновление: $(date +'%Y-%m-%d_%H:%M')"
+          git push origin main
