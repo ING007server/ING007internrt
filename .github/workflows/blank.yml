@@ -2,8 +2,7 @@ name: Update Proxy List
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   schedule:
     - cron: '0 * * * *'   # каждый час
   workflow_dispatch:
@@ -15,14 +14,14 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # важно для нормального коммита
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,9 +37,9 @@ jobs:
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🔄 Обновление прокси: $(date +'%Y-%m-%d %H:%M')"
+          commit_message: "🔄 Обновление прокси | $(date +'%Y-%m-%d %H:%M')"
           file_pattern: |
             YaltaVPN - Subscription
             log.csv
-          commit_user_name: YaltaVPN
-          commit_user_email: yalta-vpn@users.noreply.github.com
+          commit_user_name: github-actions[bot]
+          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
