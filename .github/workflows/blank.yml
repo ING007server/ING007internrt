@@ -28,20 +28,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Debug - List files before
+      - name: Debug - Files before
         run: ls -la
 
       - name: Run Parser Script
-        run: python .github/workflows/parser.py
-        continue-on-error: true   # продолжит даже если скрипт упадёт
+        run: python .github/workflows/parser.py || echo "Parser exited with error"
 
-      - name: Debug - List files after
+      - name: Debug - Files after
         run: ls -la
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🔄 Автообновление прокси | $(date +'%Y-%m-%d %H:%M')"
+          commit_message: "🔄 Автообновление YaltaVPN | $(date +'%Y-%m-%d %H:%M')"
           file_pattern: |
             YaltaVPN - Subscription
             log.csv
