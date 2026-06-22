@@ -25,7 +25,7 @@ for i in range(1, 21):
 
 # ===================== НАСТРОЙКИ =====================
 LIMIT = 3000
-CONFIG_FILE = "YaltaVPN - Subscription"
+CONFIG_FILE = "ING007interrnet"
 LOG_FILE = "log.csv"
 
 # ===================== ОСНОВНЫЕ ФУНКЦИИ =====================
