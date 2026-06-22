@@ -1,43 +1,41 @@
-name: Update Configs
+name: CI
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'   # каждые 6 часов
-  workflow_dispatch:        # можно запустить вручную
+  push:
+  workflow_dispatch:
+
+# 👇 ГЛАВНОЕ: даём права на запись в репозиторий
+permissions:
+  contents: write
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run parser
-        run: python parser.py
-        # Теперь ошибки не скрываются, мы увидим реальный вывод
+        run: python parser.py   # файл теперь в корне, путь верный
 
       - name: List files for debug
         run: ls -la
 
       - name: Commit and Push if file exists
         run: |
-          if [ -f "ING007internet" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add ING007internet
-            git commit -m "Auto-update configs $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
-            git push
-          else
-            echo "❌ Файл ING007internet не найден, коммит пропущен."
-            exit 1
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Auto-update configs $(date -u '+%Y-%m-%d %H:%M')" || echo "No changes to commit"
+          git push
