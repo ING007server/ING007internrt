@@ -1,48 +1,43 @@
-name: Update Proxy List
+name: Update Configs
 
 on:
-  push:
-    branches: [ main ]
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    - cron: '0 */6 * * *'   # каждые 6 часов
+  workflow_dispatch:        # можно запустить вручную
 
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: pip install requests
 
-      - name: Debug - Files before
+      - name: Run parser
+        run: python parser.py
+        # Теперь ошибки не скрываются, мы увидим реальный вывод
+
+      - name: List files for debug
         run: ls -la
 
-      - name: Run Parser Script
-        run: python .github/workflows/parser.py || echo "Parser crashed with error code $?"
-
-      - name: Debug - Files after
-        run: ls -la
-
-      - name: Commit and Push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "🔄 Автообновление ING007internet | $(date +'%Y-%m-%d %H:%M')"
-          file_pattern: |
-            ING007internet
-            log.csv
-          commit_user_name: github-actions[bot]
-          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Commit and Push if file exists
+        run: |
+          if [ -f "ING007internet" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add ING007internet
+            git commit -m "Auto-update configs $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
+            git push
+          else
+            echo "❌ Файл ING007internet не найден, коммит пропущен."
+            exit 1
+          fi
