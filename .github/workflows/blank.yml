@@ -5,13 +5,12 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 * * * *'   # каждый час
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Фикс для избавления от предупреждения/ошибки Node.js 20
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
@@ -22,6 +21,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # важно для нормального коммита
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,16 +33,14 @@ jobs:
         run: pip install requests
 
       - name: Run Parser Script
-        run: python parser.py
+        run: python .github/workflows/parser.py
 
       - name: Commit and Push changes
-        run: |
-          git config --global user.name "YaltaVPN"
-          git config --global user.email "yalta-vpn@users.noreply.github.com"
-          
-          # Указываем имя нового файла (в кавычках из-за пробелов) и лог
-          git add "YaltaVPN - Subscription" log.csv
-          
-          # Проверяем изменения и отправляем их на GitHub
-          git diff --cached --quiet || git commit -m "🔄 Обновление: $(date +'%Y-%m-%d_%H:%M')"
-          git push origin main
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🔄 Обновление прокси: $(date +'%Y-%m-%d %H:%M')"
+          file_pattern: |
+            YaltaVPN - Subscription
+            log.csv
+          commit_user_name: YaltaVPN
+          commit_user_email: yalta-vpn@users.noreply.github.com
