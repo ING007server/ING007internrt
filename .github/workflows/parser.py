@@ -81,4 +81,9 @@ def main():
 # (вставь сюда все остальные функции из твоего текущего parser.py: fetch_source, save_to_drive, log_to_sheet, parse_config_line и т.д.)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"💥 Критическая ошибка в main(): {e}")
+        import traceback
+        traceback.print_exc()
