@@ -32,7 +32,7 @@ jobs:
         run: ls -la
 
       - name: Run Parser Script
-        run: python .github/workflows/parser.py || echo "Parser exited with error"
+        run: python .github/workflows/parser.py || echo "Parser crashed with error code $?"
 
       - name: Debug - Files after
         run: ls -la
