@@ -4,7 +4,6 @@ on:
   push:
   workflow_dispatch:
 
-# 👇 ГЛАВНОЕ: даём права на запись в репозиторий
 permissions:
   contents: write
 
@@ -24,10 +23,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install requests
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run parser
-        run: python parser.py   # файл теперь в корне, путь верный
+        run: python parser.py
 
       - name: List files for debug
         run: ls -la
