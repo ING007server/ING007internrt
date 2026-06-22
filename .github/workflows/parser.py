@@ -45,15 +45,16 @@ def fetch_source(url):
         return []
 
 def parse_config_line(line):
-    if not line or line.startswith('#') or len(line.strip()) < 20:
-        return None
     line = line.strip()
+    if not line or line.startswith('#') or len(line) < 30:
+        return None
+    
     try:
-        # Более гибкий поиск
-        if any(proto in line for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://']):
-            # Берём всё до первого # как base_url
+        # Более умный поиск — берём любую строку, где есть ссылка на протокол
+        if any(proto in line for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'hysteria2://']):
+            # Берём часть до первого # (или всю строку, если # нет)
             base = line.split('#')[0].strip()
-            if base.startswith(('vless://', 'vmess://', 'trojan://', 'ss://')):
+            if any(base.startswith(proto) for proto in ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'hysteria2://']):
                 return {"base_url": base}
     except:
         pass
