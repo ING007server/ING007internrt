@@ -4,14 +4,11 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 * * * *'   # каждый час
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   update:
@@ -26,18 +23,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: pip install requests
 
+      - name: Debug - List files before
+        run: ls -la
+
       - name: Run Parser Script
         run: python .github/workflows/parser.py
+        continue-on-error: true   # продолжит даже если скрипт упадёт
+
+      - name: Debug - List files after
+        run: ls -la
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🔄 Обновление прокси | $(date +'%Y-%m-%d %H:%M')"
+          commit_message: "🔄 Автообновление прокси | $(date +'%Y-%m-%d %H:%M')"
           file_pattern: |
             YaltaVPN - Subscription
             log.csv
