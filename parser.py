@@ -8,7 +8,7 @@ CONFIG_FILE = "ING007internet"
 
 # Список источников (URL или локальные файлы)
 SOURCES = [
-    "https://raw.githubusercontent.com/ING007server/ING007internet/refs/heads/main/ING007internet",
+    "https://raw.githubusercontent.com/ING007server/ING007internrt/refs/heads/main/ING007internet",
 ]
 
 def parse_config_line(line):
