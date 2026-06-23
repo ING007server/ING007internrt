@@ -8,7 +8,7 @@ CONFIG_FILE = "ING007internet"
 
 # Список источников (URL или локальные файлы)
 SOURCES = [
-    "https://raw.githubusercontent.com/ING007server/ING008internrt/refs/heads/main/NekoBox.txt",
+    "https://raw.githubusercontent.com/ING007server/ING007internrt/refs/heads/main/ING007internet",
 ]
 
 def parse_config_line(line):
@@ -17,7 +17,7 @@ def parse_config_line(line):
     if not line:
         return None
     # Ищем протоколы
-    protocols = ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://']
+    protocols = ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'hysteria 2://']
     for proto in protocols:
         if line.startswith(proto):
             return line
