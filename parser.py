@@ -4,11 +4,7 @@ from urllib.parse import urlparse
 
 # ============ ТВОИ ИСТОЧНИКИ ============
 SOURCES = [
-    "https://subrostunnel.vercel.app/gen.txt",
-    "https://mifa.world/vless",
-    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt",
-    "https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt",
-    "https://raw.githubusercontent.com/hiztin/VLESS-PO-GRIBI/main/deploy/subscriptions/1.txt",
+    "",
 ]
 
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
