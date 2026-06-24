@@ -4,15 +4,11 @@ from urllib.parse import urlparse
 
 # ============ ТВОИ ИСТОЧНИКИ ============
 SOURCES = [
-    "https://raw.githubusercontent.com/arshiafarrokhi/v2ray-config/main/splitted/link1.txt",
-    "https://raw.githubusercontent.com/arshiafarrokhi/v2ray-config/main/splitted/link2.txt",
-    "https://raw.githubusercontent.com/arshiafarrokhi/v2ray-config/main/splitted/link3.txt",
-    "https://raw.githubusercontent.com/arshiafarrokhi/v2ray-config/main/splitted/link4.txt",
-    "https://raw.githubusercontent.com/arshiafarrokhi/v2ray-config/main/splitted/link5.txt",
-    "https://raw.githubusercontent.com/arshiafarrokhi/v2ray-config/main/splitted/link6.txt",
-    "https://raw.githubusercontent.com/hawshemi/ipScraper/main/configs/all_configs.txt",
-    "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/configs/configs.txt",
-    "https://raw.githubusercontent.com/peyman-ps/ConfigCollector/main/result/configs.txt",
+    "https://subrostunnel.vercel.app/gen.txt",
+    "https://mifa.world/vless",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt",
+    "https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt",
+    "https://raw.githubusercontent.com/hiztin/VLESS-PO-GRIBI/main/deploy/subscriptions/1.txt",
 ]
 
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
