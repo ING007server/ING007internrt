@@ -10,7 +10,6 @@ CONFIG_FILE = "ING007internet"
 SOURCES = [
    "https://raw.githubusercontent.com/btsk161/Freeinternet_byMygalaru.github.io/refs/heads/main/premium.txt",
     "https://gitverse.ru/api/repos/vansfenix/vansFenix/raw/branch/master/WLWVF",
-    "https://gitverse.ru/api/repos/vansfenix/vansFenix/raw/branch/master/ХЕРЗНАЕТЧО",
     "https://mifa.world/vless",
     "https://mifa.world/hysteria",
 ]
