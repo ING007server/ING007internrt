@@ -1,5 +1,4 @@
 import requests
-import re
 import time
 from urllib.parse import urlparse
 
@@ -14,7 +13,6 @@ SOURCES = [
     "https://raw.githubusercontent.com/hawshemi/ipScraper/main/configs/all_configs.txt",
     "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/configs/configs.txt",
     "https://raw.githubusercontent.com/peyman-ps/ConfigCollector/main/result/configs.txt",
-      # эту лучше удалить или закомментировать
 ]
 
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
@@ -24,9 +22,8 @@ def parse_config_line(line):
     if not line:
         return None
 
-    # Все протоколы в одном месте, опечатки исправлены
     protocols = [
-        'vless://', 'vmess://', 'trojan://', 
+        'vless://', 'vmess://', 'trojan://',
         'ss://', 'ssr://', 'hysteria2://', 'hy2://'
     ]
 
@@ -35,55 +32,74 @@ def parse_config_line(line):
             return line
         idx = line.find(proto)
         if idx != -1:
-            # обрезаем всё после пробела, если есть
             end = line.find(' ', idx)
             if end == -1:
                 end = len(line)
             return line[idx:end]
     return None
 
-# ============ ЗАГРУЗКА ИСТОЧНИКА ============
-def fetch_source(url):
-    """Скачивает содержимое по ссылке, возвращает список строк"""
-    try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-        resp = requests.get(url, timeout=30, headers=headers)
-        resp.encoding = 'utf-8'
-        if resp.status_code == 200:
-            return resp.text.splitlines()
-        else:
-            print(f"❌ Ошибка {resp.status_code} при загрузке {url}")
-            return []
-    except Exception as e:
-        print(f"⚠️ Исключение при загрузке {url}: {e}")
-        return []
+# ============ ЗАГРУЗКА ИСТОЧНИКА С ПОВТОРАМИ ============
+def fetch_source(url, retries=3):
+    """Скачивает содержимое с повторами при ошибках"""
+    for attempt in range(1, retries + 1):
+        try:
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+            resp = requests.get(url, timeout=45, headers=headers)
+            resp.encoding = 'utf-8'
+            if resp.status_code == 200:
+                lines = resp.text.splitlines()
+                print(f"   ✅ Загружено {len(lines)} строк")
+                return lines
+            else:
+                print(f"   ⚠️ Попытка {attempt}: HTTP {resp.status_code}")
+                if attempt == retries:
+                    print(f"   ❌ Ошибка {resp.status_code} после {retries} попыток")
+                    return []
+        except Exception as e:
+            print(f"   ⚠️ Попытка {attempt}: {e}")
+            if attempt == retries:
+                print(f"   ❌ Исключение после {retries} попыток")
+                return []
+        time.sleep(2)  # пауза между попытками
+    return []
 
 # ============ ГЛАВНАЯ ФУНКЦИЯ ============
 def main():
-    all_configs = []   # сюда собираем все найденные конфиги
+    all_configs = []
+    total_sources = len(SOURCES)
 
-    for url in SOURCES:
-        print(f"🔄 Обрабатываю: {url}")
+    print(f"🚀 Запуск парсера. Источников: {total_sources}\n")
+
+    for idx, url in enumerate(SOURCES, 1):
+        print(f"[{idx}/{total_sources}] 🔄 Обрабатываю: {url}")
         lines = fetch_source(url)
         if not lines:
+            print(f"   ⏭️ Пропускаю (нет данных)")
             continue
 
+        found = 0
         for line in lines:
             cfg = parse_config_line(line)
             if cfg:
                 all_configs.append(cfg)
-        time.sleep(0.5)  # маленькая пауза между источниками
+                found += 1
+        print(f"   🎯 Найдено конфигов в этом источнике: {found}")
+        time.sleep(0.5)  # пауза между источниками
 
-    # ======== УБИРАЕМ ДУБЛИКАТЫ (вот здесь, родной!) ========
+    # Убираем дубликаты
     unique_configs = list(dict.fromkeys(all_configs))
-    print(f"🧹 Было {len(all_configs)} строк, осталось {len(unique_configs)} уникальных")
+    print(f"\n🧹 Итого: {len(all_configs)} строк, уникальных: {len(unique_configs)}")
 
-    # ======== СОХРАНЯЕМ В ФАЙЛ ========
-    with open('ING007internet', 'w', encoding='utf-8') as f:
-        for cfg in unique_configs:
-            f.write(cfg + '\n')
-
-    print("✅ Готово! Файл ING007internet обновлён.")
+    # Сохраняем в файл
+    if not unique_configs:
+        with open('ING007internet', 'w', encoding='utf-8') as f:
+            f.write("# ⚠️ Конфиги не найдены! Проверь доступность источников.\n")
+        print("❌ Файл создан, но он пуст (нет конфигов).")
+    else:
+        with open('ING007internet', 'w', encoding='utf-8') as f:
+            for cfg in unique_configs:
+                f.write(cfg + '\n')
+        print(f"✅ Готово! {len(unique_configs)} уникальных конфигов записано в ING007internet.")
 
 if __name__ == "__main__":
     main()
