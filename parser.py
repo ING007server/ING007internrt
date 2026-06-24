@@ -19,17 +19,20 @@ def parse_config_line(line):
     line = line.strip()
     if not line:
         return None
+    
+    # Протоколы — все в одном месте, без опечаток
     protocols = ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'hysteria2://', 'hy2://']
+    
     for proto in protocols:
         if line.startswith(proto):
             return line
         idx = line.find(proto)
         if idx != -1:
-            # берём от proto до конца строки или до пробела/запятой
             end = line.find(' ', idx)
             if end == -1:
                 end = len(line)
             return line[idx:end]
+    
     return None
     # Ищем протоколы
     protocols = ['vless://', 'vmess://', 'trojan://', 'ss://', 'ssr://', 'hysteria 2://']
