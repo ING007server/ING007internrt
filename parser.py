@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 
 # ============ ТВОИ ИСТОЧНИКИ ============
 SOURCES = [
-    "",
+    "https://raw.githubusercontent.com/ING007server/ING007internrt/refs/heads/main/ING007internet",
 ]
 
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
