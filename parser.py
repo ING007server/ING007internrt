@@ -8,12 +8,11 @@ CONFIG_FILE = "ING007internet"
 
 # Список источников (URL или локальные файлы)
 SOURCES = [
-    "https://raw.githubusercontent.com/zieng2/wl/refs/heads/main/vless_universal.txt",
-   "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt",
-    "https://gitverse.ru/api/repos/bezlista/bezlista_mirror/raw/branch/master/conf1g.txt",
-"https://gitverse.ru/api/repos/bezlista/bezlista_mirror/raw/branch/master/conf1g.txt",
-"https://raw.githubusercontent.com/mmaksim9191/my-vpn-configs/refs/heads/main/configs/white-cidr-checked.txt",
-"https://gitverse.ru/api/repos/cid-uskoritel/cid-white/raw/branch/master/whitelist.txt",
+   "https://raw.githubusercontent.com/btsk161/Freeinternet_byMygalaru.github.io/refs/heads/main/premium.txt",
+    "https://gitverse.ru/api/repos/vansfenix/vansFenix/raw/branch/master/WLWVF",
+    "https://gitverse.ru/api/repos/vansfenix/vansFenix/raw/branch/master/ХЕРЗНАЕТЧО",
+    "https://mifa.world/vless",
+    "https://mifa.world/hysteria",
 ]
 
 def parse_config_line(line):
