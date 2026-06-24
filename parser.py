@@ -8,7 +8,12 @@ CONFIG_FILE = "ING007internet"
 
 # Список источников (URL или локальные файлы)
 SOURCES = [
-    "https://raw.githubusercontent.com/ING007server/ING007internrt/refs/heads/main/ING007internet",
+    "https://raw.githubusercontent.com/zieng2/wl/refs/heads/main/vless_universal.txt",
+   "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt",
+    "https://gitverse.ru/api/repos/bezlista/bezlista_mirror/raw/branch/master/conf1g.txt",
+"https://gitverse.ru/api/repos/bezlista/bezlista_mirror/raw/branch/master/conf1g.txt",
+"https://raw.githubusercontent.com/mmaksim9191/my-vpn-configs/refs/heads/main/configs/white-cidr-checked.txt",
+"https://gitverse.ru/api/repos/cid-uskoritel/cid-white/raw/branch/master/whitelist.txt",
 ]
 
 def parse_config_line(line):
