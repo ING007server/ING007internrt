@@ -20,11 +20,11 @@ from datetime import datetime
 
 # ======================== НАСТРОЙКИ ========================
 DEFAULT_SOURCES = [
-    "https://github.com/ING007server/ING007internrt/blob/main/ING007internet",
-    "https://gist.github.com/DestroyST6767/f4dd6f12e5ba9d04ff8d19db0396e310.txt",
     "https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt",
-    "https://internet-tenshi.kangel.tech/whitelist",
-    "https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6.txt",
+    "https://raw.githubusercontent.com/WSJuJuB01/WS_Parser/refs/heads/main/subscription.txt",
+    "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt",
+    "https://raw.githubusercontent.com/btsk161/Freeinternet_byMygalaru.github.io/refs/heads/main/premium.txt",
 ]
 
 PROTOCOLS = ['vless', 'vmess', 'trojan', 'ss', 'ssr', 'hysteria2', 'hy2']
