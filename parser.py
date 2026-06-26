@@ -6,6 +6,10 @@ from urllib.parse import urlparse
 SOURCES = [
 
     "https://github.com/ING007server/ING007internrt/blob/main/ING007internet",
+    "https://gist.github.com/DestroyST6767/f4dd6f12e5ba9d04ff8d19db0396e310.txt",
+    "https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt",
+    "https://internet-tenshi.kangel.tech/whitelist",
+    "https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6.txt",
 
     [
 
