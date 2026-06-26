@@ -10,8 +10,7 @@ SOURCES = [
     "https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt",
     "https://internet-tenshi.kangel.tech/whitelist",
     "https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6.txt",
-
-    [
+[
 
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
 def parse_config_line(line):
