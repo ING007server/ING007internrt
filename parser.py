@@ -5,9 +5,7 @@ from urllib.parse import urlparse
 # ============ ТВОИ ИСТОЧНИКИ ============
 SOURCES = [
 
-    "https://vpn.tgflovv.ru:8000/free-white/54af9268-49c4-422b-ac39-c34447a7ea04",
-    "https://vpn.tgflovv.ru:8000/free-white-ru/54af9268-49c4-422b-ac39-c34447a7ea04",
-]
+    "https://github.com/ING007server/ING007internrt/blob/main/ING007internet",
 
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
 def parse_config_line(line):
