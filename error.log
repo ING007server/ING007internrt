@@ -1,0 +1,11 @@
+2026-06-26 16:10:42,365 - INFO - Запуск парсера. Источников: 5
+2026-06-26 16:10:42,453 - INFO - ✅ Загружено 206 строк из https://raw.githubusercontent.com/Maskkost93/kizyak-vpn-4.0/refs/heads/main/kizyakbeta6.txt
+2026-06-26 16:10:42,459 - INFO - ✅ Загружено 198 строк из https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt
+2026-06-26 16:10:42,648 - INFO - ✅ Загружено 86 строк из https://internet-tenshi.kangel.tech/whitelist
+2026-06-26 16:10:42,656 - INFO - ✅ Загружено 39 строк из https://gist.github.com/DestroyST6767/f4dd6f12e5ba9d04ff8d19db0396e310.txt
+2026-06-26 16:10:43,882 - INFO - ✅ Загружено 1473 строк из https://github.com/ING007server/ING007internrt/blob/main/ING007internet
+2026-06-26 16:10:43,901 - INFO - 🎯 Извлечено ссылок (до удаления дублей): 1512
+2026-06-26 16:10:43,901 - INFO - 🧹 Уникальных ссылок: 5
+2026-06-26 16:10:43,902 - INFO - ✅ Сырые ссылки сохранены в configs_all.txt
+2026-06-26 16:10:43,902 - INFO - ✅ Base64-подписка сохранена в sub_base64.txt
+2026-06-26 16:10:43,902 - INFO - 🎉 Готово! Затрачено времени: 1.54 сек.
