@@ -7,6 +7,8 @@ SOURCES = [
 
     "https://github.com/ING007server/ING007internrt/blob/main/ING007internet",
 
+    [
+
 # ============ ПАРСИНГ ОДНОЙ СТРОКИ ============
 def parse_config_line(line):
     """Из строки вырезает первую ссылку с известным протоколом"""
