@@ -9,3 +9,14 @@
 2026-06-26 16:10:43,902 - INFO - ✅ Сырые ссылки сохранены в configs_all.txt
 2026-06-26 16:10:43,902 - INFO - ✅ Base64-подписка сохранена в sub_base64.txt
 2026-06-26 16:10:43,902 - INFO - 🎉 Готово! Затрачено времени: 1.54 сек.
+2026-06-26 16:22:54,724 - INFO - Запуск парсера. Источников: 5
+2026-06-26 16:22:54,801 - INFO - ✅ Загружено 144 строк из https://raw.githubusercontent.com/btsk161/Freeinternet_byMygalaru.github.io/refs/heads/main/premium.txt
+2026-06-26 16:22:54,804 - INFO - ✅ Загружено 244 строк из https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt
+2026-06-26 16:22:54,819 - INFO - ✅ Загружено 17 строк из https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt
+2026-06-26 16:22:54,910 - INFO - ✅ Загружено 198 строк из https://raw.githubusercontent.com/flaafix/AetrisVPN-white-list-lite/refs/heads/main/AetrisVPN.txt
+2026-06-26 16:22:54,959 - INFO - ✅ Загружено 1692 строк из https://raw.githubusercontent.com/WSJuJuB01/WS_Parser/refs/heads/main/subscription.txt
+2026-06-26 16:22:54,972 - INFO - 🎯 Извлечено ссылок (до удаления дублей): 2201
+2026-06-26 16:22:54,972 - INFO - 🧹 Уникальных ссылок: 5
+2026-06-26 16:22:54,973 - INFO - ✅ Сырые ссылки сохранены в configs_all.txt
+2026-06-26 16:22:54,973 - INFO - ✅ Base64-подписка сохранена в sub_base64.txt
+2026-06-26 16:22:54,973 - INFO - 🎉 Готово! Затрачено времени: 0.25 сек.
