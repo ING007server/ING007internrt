@@ -1,22 +1,30 @@
 name: Update ING007 VPN Configs
+
 on:
   schedule:
-    - cron: '0 */6 * * *'   # каждые 6 часов
-  workflow_dispatch:
+    - cron: '0 */6 * * *'  # каждые 6 часов
+  workflow_dispatch:        # ручной запуск
 
-  permissions:
-    contents: write
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-      - run: pip install requests
-      - run: python ING007.py
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run parser
+        run: python ING007.py
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-update VPN configs"
