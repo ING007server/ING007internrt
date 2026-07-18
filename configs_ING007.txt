@@ -1,6 +1,6 @@
 #profile-title: ING007 VPN (Private)
 #profile-update-interval: 12
-#announce: Версия 53 | 155 конфигов | 2026-07-18 15:33:22
+#announce: Версия 54 | 155 конфигов | 2026-07-18 20:33:14
 #hide-settings: 1
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=eh.vk.com&security=reality&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&security=reality&sid=111111&sni=eh.vk.com&type=tcp#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
@@ -45,8 +45,8 @@ vless://d8d05386-e381-40a4-bb63-715c208b3ed3@109.120.132.142:40617?encryption=no
 vless://d8d05386-e381-40a4-bb63-715c208b3ed3@109.120.132.142:40617?encryption=none&security=none&type=tcp#🌐 Anycast | ip = 109.120.132.142 (CIDR) | 🔥 от ING007
 vless://ab9a202a-d0b2-01f4-95e5-d6f373a1ab35@109.120.189.133:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 Россия | ip = 109.120.189.133 (CIDR) | 🔥 от ING007
 vless://ab9a202a-d0b2-03e8-95e5-d6f373a1ab35@109.120.189.133:443?flow=xtls-rprx-vision&encryption=none&type=tcp&security=reality&fp=chrome&sni=max.ru&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 Россия | ip = 109.120.189.133 (CIDR) | 🔥 от ING007
-vless://c0aa0cee-e855-4bcc-9afc-46241cb17990@109.120.152.19:443?encryption=none&flow=xtls-rprx-vision&security=tls&sni=fast_s89.screw.page&fp=chrome&insecure=0&allowInsecure=0&type=tcp&headerType=none#🇩🇪 Германия | ip = 109.120.152.19 (CIDR) | 🔥 от ING007
 vless://ba9ddd0d-5ffd-4d40-b76d-df32ecb092a1@109.120.177.84:443?security=tls&encryption=none&headerType=none&type=tcp&sni=decdn7.suio.me#🇩🇪 Германия | ip = 109.120.177.84 (CIDR) | 🔥 от ING007
+vless://c0aa0cee-e855-4bcc-9afc-46241cb17990@109.120.152.19:443?encryption=none&flow=xtls-rprx-vision&security=tls&sni=fast_s89.screw.page&fp=chrome&insecure=0&allowInsecure=0&type=tcp&headerType=none#🇩🇪 Германия | ip = 109.120.152.19 (CIDR) | 🔥 от ING007
 vless://3559f1f7-7d70-46c9-82db-d2b46269300b@109.120.185.230:443?security=reality&encryption=none&pbk=1BdgrQ_esOEya01sDCBYK4MGpJgaUhssHQG-aWJkyFQ&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=dipvpn.ru#🇩🇪 Германия | ip = 109.120.185.230 (CIDR) | 🔥 от ING007
 vless://3559f1f7-7d70-46c9-82db-d2b46269300b@109.120.185.230:443?security=reality&encryption=none&pbk=1BdgrQ_esOEya01sDCBYK4MGpJgaUhssHQG-aWJkyFQ&host=%2F%3FBIA_TELEGRAM%40MARAMBASHI_MARAMBASHI_MARAMBASHI_MARAMBASHI&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=dipvpn.ru#🇩🇪 Германия | ip = 109.120.185.230 (CIDR) | 🔥 от ING007
 vless://3559f1f7-7d70-46c9-82db-d2b46269300b@109.120.185.230:443?security=reality&encryption=none&pbk=1BdgrQ_esOEya01sDCBYK4MGpJgaUhssHQG-aWJkyFQ&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=dipvpn.ru#🇩🇪 Германия | ip = 109.120.185.230 (CIDR) | 🔥 от ING007
