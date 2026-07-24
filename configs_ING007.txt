@@ -1,6 +1,6 @@
 #profile-title: ING007 VPN (Private)
 #profile-update-interval: 12
-#announce: Версия 70 | 238 конфигов | 2026-07-23 19:14:13
+#announce: Версия 71 | 238 конфигов | 2026-07-24 02:32:00
 #hide-settings: 1
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=eh.vk.com&security=reality&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&security=reality&sid=111111&sni=eh.vk.com&type=tcp#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
@@ -232,9 +232,9 @@ vless://3559f1f7-7d70-46c9-82db-d2b46269300b@109.120.185.230:443?security=realit
 vless://d8d05386-e381-40a4-bb63-715c208b3ed3@109.120.132.142:40617/?type=tcp&amp;encryption=none&amp;flow=#🌐 Anycast | ip = 109.120.132.142 (CIDR) | 🔥 от ING007
 vless://c0aa0cee-e855-4bcc-9afc-46241cb17990@109.120.152.19:443?security=tls&amp;encryption=none&amp;insecure=0&amp;headerType=none&amp;fp=chrome&amp;type=tcp&amp;allowInsecure=0&amp;flow=xtls-rprx-vision&amp;sni=fast_s89.screw.page#🇫🇮 Финляндия | ip = 109.120.152.19 (CIDR) | 🔥 от ING007
 vless://080556c0-0117-07d0-b1d9-3708fa8ab8c4@109.120.189.160:443?security=reality&amp;encryption=none&amp;pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&amp;host=pulavpn.net&amp;headerType=none&amp;fp=qq&amp;spx=/PuLaVPN/PuLaVPN/PuLaVPN//PuLaVPN/PuLaVPN/PuLaVPN/PuLaVPN//PuLaVPN&amp;type=tcp&amp;flow=xtls-rprx-vision&amp;sni=max.ru&amp;sid=d8c6b58bcbb0c323#🇩🇪 Германия | ip = 109.120.189.160 (CIDR) | 🔥 от ING007
-vless://afc49295-8d08-4f5e-b342-eb6f28344b21@109.120.191.147:443?type=raw&security=reality&sni=eh.vk.com&fp=firefox&flow=xtls-rprx-vision&pbk=G7ahPRdtx_M8bxkIDU0hHtMbH6pn6dG91jweBVESSi0#🇫🇮 Финляндия | ip = 109.120.191.147 (CIDR) | 🔥 от ING007
 vless://17c4e377-ea15-0bb8-98b2-3e348c9ff5d9@109.120.189.142:443?type=tcp&security=reality&sni=max.ru&fp=chrome&flow=xtls-rprx-vision&pbk=4CH3o5zOMcFNMbnwXnkAg0FFepmsc0QzhahXkUzb1ik&sid=d8c6b58bcbb0c323#🇷🇺 Россия | ip = 109.120.189.142 (CIDR) | 🔥 от ING007
 vless://1cd83924-2950-4147-86c3-7c1c78e45d87@109.120.188.54:443?type=tcp&security=reality&sni=ads.x5.ru&fp=edge&flow=xtls-rprx-vision&pbk=4woJiVyGtLro6qRQdUcM2EJDHI3CLOeeE-knmSHk8lE&sid=1ca44564cda56661#🇷🇺 Россия | ip = 109.120.188.54 (CIDR) | 🔥 от ING007
+vless://afc49295-8d08-4f5e-b342-eb6f28344b21@109.120.191.147:443?type=raw&security=reality&sni=eh.vk.com&fp=firefox&flow=xtls-rprx-vision&pbk=G7ahPRdtx_M8bxkIDU0hHtMbH6pn6dG91jweBVESSi0#🇫🇮 Финляндия | ip = 109.120.191.147 (CIDR) | 🔥 от ING007
 vless://db7cae85-3c1a-4e4f-b317-7cdeaf419c5a@109.120.190.41:1829?type=tcp&security=reality&sni=max.ru&fp=firefox&flow=xtls-rprx-vision&pbk=dbe3HCS7E7QfvfN59Us7rV8Kasm_5CCUgKiGm8k8vRg&sid=c3607d#🇺🇸 США | ip = 109.120.190.41 (CIDR) | 🔥 от ING007
 vless://e1ecf270-6429-4d22-a884-6ab014173178@109.120.183.69:443?type=tcp&security=reality&sni=max.ru&fp=firefox&flow=xtls-rprx-vision&pbk=SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw&sid=66c17371#🇫🇮 Финляндия | ip = 109.120.183.69 (CIDR) | 🔥 от ING007
 vless://5a4ea216-9597-4df7-a119-02949a3b6b82@109.120.154.167:443?fp=chrome&host=ger.wafer.fun&path=%2FTs7kIzm7a8mYEOrQCXl1&security=tls&sni=ger.wafer.fun&type=ws#🇳🇱 Нидерланды | ip = 109.120.154.167 (CIDR) | 🔥 от ING007
