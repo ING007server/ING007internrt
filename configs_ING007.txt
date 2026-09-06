@@ -1,6 +1,6 @@
 #profile-title: ING007 VPN (Private)
 #profile-update-interval: 12
-#announce: Версия 243 | 224 конфигов | 2026-09-06 14:58:01
+#announce: Версия 244 | 224 конфигов | 2026-09-06 20:01:28
 #hide-settings: 1
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=eh.vk.com&security=reality&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&security=reality&sid=111111&sni=eh.vk.com&type=tcp#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
