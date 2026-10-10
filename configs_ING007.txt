@@ -1,10 +1,9 @@
 #profile-title: ING007 VPN (Private)
 #profile-update-interval: 12
-#announce: Версия 368 | 34 конфигов | 2026-10-10 04:23:13
+#announce: Версия 369 | 33 конфигов | 2026-10-10 11:56:21
 #hide-settings: 1
-vless://adc11f30-e4cb-4985-bf5e-f9ded69c019f@109.120.181.153:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=eh.vk.ru&fp=random&pbk=fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI&sid=db04ce8bdb8900f1&type=tcp#🇩🇪 Германия | ip = 109.120.181.153 (CIDR) | 🔥 от ING007
-vless://adc11f30-e4cb-4985-bf5e-f9ded69c019f@109.120.181.153:443?sni=eh.vk.ru&flow=xtls-rprx-vision&fp=chrome&security=reality&pbk=fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI&sid=db04ce8bdb8900f1#🇩🇪 Германия | ip = 109.120.181.153 (CIDR) | 🔥 от ING007
-vless://adc11f30-e4cb-4985-bf5e-f9ded69c019f@109.120.181.153:443?type=raw&security=reality&flow=xtls-rprx-vision&fp=firefox&pbk=fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI&sid=db04ce8bdb8900f1&sni=eh.vk.ru#🇩🇪 Германия | ip = 109.120.181.153 (CIDR) | 🔥 от ING007
+vless://d1004cfe-c279-e865-d865-71964dbdf85d@109.120.188.152:443?type=xhttp&security=tls&encryption=none&path=%2Fcdn%2Fstatic%2Fchunks%2Fbk-7d4a91e2&host=ws188152.mypaneltest.online&sni=ws188152.mypaneltest.online&fp=edge&headerType=none&mode=auto#🇩🇪 Германия | ip = 109.120.188.152 (CIDR) | 🔥 от ING007
+vless://d1004cfe-c279-e865-d865-71964dbdf85d@109.120.188.152:443?encryption=none&extra=null&fp=qq&host=ws188152.mypaneltest.online&mode=auto&path=%2Fcdn%2Fstatic%2Fchunks%2Fbk-7d4a91e2&security=tls&sni=ws188152.mypaneltest.online&type=xhttp#🇷🇺 Россия | ip = 109.120.188.152 (CIDR) | 🔥 от ING007
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=eh.vk.com&security=reality&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?encryption=none&flow=xtls-rprx-vision&fp=chrome&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&security=reality&sid=111111&sni=eh.vk.com&type=tcp#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
 vless://8619e4c1-0984-4dce-83e3-419e2d7f5079@109.120.189.252:4241?security=reality&type=tcp&flow=xtls-rprx-vision&sni=eh.vk.com&pbk=OCRYYq4e92sQ-wWFRX6WX9pdvuFBWOqybLhpSiv3nFA&sid=111111&name=TG%3AYoutubeUnBlockRu#🇷🇺 Россия | ip = 109.120.189.252 (CIDR) | 🔥 от ING007
